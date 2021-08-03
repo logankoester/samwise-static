@@ -1,19 +1,19 @@
-project = "nginx-project"
+project = "samwise-static"
 
 runner {
   enabled = true
   data_source "git" {
-    url  = "https://github.com/hashicorp/waypoint-examples.git"
-    path = "docker/static"
+    url  = "https://github.com/logankoester/samwise-static.git"
+    #path = "docker/static"
   }
 }
 
 # Labels can be specified for organizational purposes.
 # labels = { "foo" = "bar" }
 
-app "nginx-project" {
+app "samwise-static" {
   labels = {
-    "service" = "nginx-project"
+    "service" = "samwise-static"
     "env" = "dev"
   }
 
@@ -28,10 +28,10 @@ app "nginx-project" {
   deploy {
     use "docker" {
       labels = {
-        "traefik.http.routers.nginx-project.rule" = "Host(`nginx-project.waypoint.smaug.dev`)"
-        "traefik.http.routers.nginx-project.entrypoints" = "websecure"
-        "traefik.http.routers.nginx-project.tls.certresolver" = "myresolver"
-        "traefik.http.services.nginx-project.loadbalancer.server.port" = "3000"
+        "traefik.http.routers.samwise-static.rule" = "Host(`samwise-static.waypoint.smaug.dev`)"
+        "traefik.http.routers.samwise-static.entrypoints" = "websecure"
+        "traefik.http.routers.samwise-static.tls.certresolver" = "myresolver"
+        "traefik.http.services.samwise-static.loadbalancer.server.port" = "3000"
       }
     }
   }
