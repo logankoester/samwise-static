@@ -34,5 +34,5 @@ jobs:
           version: '0.4.2'
       - run: waypoint init
       - run: waypoint build -remote
-      - run: waypoint deploy -remote
+      - run: waypoint deploy -remote -release=false
       - run: waypoint release -remote -prune-retain=0
