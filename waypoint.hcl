@@ -18,7 +18,7 @@ app "samwise-static" {
   }
 
   build {
-    use "pack" {
+    use "docker" {
     }
   }
 
