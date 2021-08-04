@@ -18,10 +18,7 @@ app "samwise-static" {
   }
 
   build {
-    use "docker" {
-#	buildkit = true
-	#platform = "linux/amd64"
-	#disable_entrypoint = true
+    use "pack" {
     }
   }
 
