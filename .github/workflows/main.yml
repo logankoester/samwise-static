@@ -25,6 +25,7 @@ jobs:
       WAYPOINT_SERVER_ADDR: waypoint.smaug.dev:9701
       WAYPOINT_SERVER_TLS: 1
       WAYPOINT_SERVER_TLS_SKIP_VERIFY: 1
+      WP_VAR_name: ${{ secrets.WP_VAR_name }}
 
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
