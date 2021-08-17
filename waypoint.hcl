@@ -13,7 +13,7 @@ runner {
 
 app "samwise-static" {
   labels = {
-    "service" = "samwise-static"
+    "service" = var.name
     "env" = "dev"
   }
 
@@ -25,11 +25,18 @@ app "samwise-static" {
   deploy {
     use "docker" {
       labels = {
-        "traefik.http.routers.samwise-static.rule" = "Host(`samwise-static.waypoint.smaug.dev`)"
-        "traefik.http.routers.samwise-static.entrypoints" = "websecure"
-        "traefik.http.routers.samwise-static.tls.certresolver" = "myresolver"
-        "traefik.http.services.samwise-static.loadbalancer.server.port" = "3000"
+        "traefik.http.routers.${var.name}.rule" = "Host(`${var.name}.waypoint.smaug.dev`)"
+        "traefik.http.routers.${var.name}.entrypoints" = "websecure"
+        "traefik.http.routers.${var.name}.tls.certresolver" = "myresolver"
+        "traefik.http.services.${var.name}.loadbalancer.server.port" = "3000"
       }
     }
   }
+}
+
+
+variable "name" {
+  type = string
+  default = "samwise-static"
+  description = "Project name"
 }
